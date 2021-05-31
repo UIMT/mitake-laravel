@@ -1,0 +1,58 @@
+{
+  "name": "uimt/mitake-laravel",
+  "description": "Mitake service provider for Laravel",
+  "type": "library",
+  "keywords": [
+    "mitake",
+    "mitake-service-provider",
+    "laravel-service-provider"
+  ],
+  "homepage": "https://github.com/uimt/mitake-laravel",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/uimt/mitake-laravel/issues"
+  },
+  "require": {
+    "php": "^7.3|^8.0",
+    "illuminate/support": "^8.44",
+    "uimt/mitake-sdk-php": "^0.0.1"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.18",
+    "phpunit/phpunit": "^9.3.3",
+    "squizlabs/php_codesniffer": "^3.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mitake\\Laravel\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Mitake\\Laravel\\Tests\\": "tests"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "test": "phpunit",
+    "coverage-html": "phpunit --coverage-html=build/coverage-html"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Mitake\\Laravel\\MitakeServiceProvider"
+      ],
+      "aliases": {
+        "Mitake": "Mitake\\Laravel\\Facade\\Mitake"
+      }
+    }
+  }
+}

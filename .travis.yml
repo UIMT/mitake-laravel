@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - 7.4
+
+sudo: false
+
+cache:
+  directories:
+  - $HOME/.composer/cache/files
+
+install:
+  - composer install --prefer-dist
+
+script:
+  - composer run check
